@@ -1,11 +1,15 @@
 package com.example.jiangchuanfa.projecttraining.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.jiangchuanfa.projecttraining.R;
@@ -30,6 +34,11 @@ public class GuildActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //使屏幕不显示标题栏(必须要在setContentView方法执行前执行)
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // 隐藏状态栏，使内容全屏显示(必须要在setContentView方法执行前执行)
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_guild);
         ButterKnife.bind(this);
 
@@ -88,18 +97,9 @@ public class GuildActivity extends AppCompatActivity {
      */
     private class MyPageAdapter extends FragmentPagerAdapter {
 
-
-
-
         public MyPageAdapter(FragmentManager fm) {
             super(fm);
-
         }
-
-//        @Override
-//        public Object instantiateItem(ViewGroup container, int position) {
-//            return super.instantiateItem(container, position);
-//        }
 
         @Override
         public Fragment getItem(int position) {
@@ -110,11 +110,6 @@ public class GuildActivity extends AppCompatActivity {
         public int getCount() {
             return fragments.size();
         }
-
-//        @Override
-//        public boolean isViewFromObject(View view, Object object) {
-//            return view==object;
-//        }
     }
 
     /**
@@ -133,18 +128,10 @@ public class GuildActivity extends AppCompatActivity {
          */
         @Override
         public void onPageSelected(int position) {
-//            bt_start.setVisibility(View.GONE);
-//            iv1.setImageResource(R.mipmap.dot_normal);
-//            iv2.setImageResource(R.mipmap.dot_normal);
-//            iv3.setImageResource(R.mipmap.dot_normal);
-//            if (position == 0) {
-//                iv1.setImageResource(R.mipmap.dot_focus);
-//            } else if (position == 1) {
-//                iv2.setImageResource(R.mipmap.dot_focus);
-//            } else {
-//                iv3.setImageResource(R.mipmap.dot_focus);
-//                bt_start.setVisibility(View.VISIBLE);
-//            }
+            btnStartMain.setVisibility(View.GONE);
+            if (position == 4) {
+                btnStartMain.setVisibility(View.VISIBLE);
+            }
         }
 
         @Override
@@ -155,6 +142,9 @@ public class GuildActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_start_main)
     public void onViewClicked() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 

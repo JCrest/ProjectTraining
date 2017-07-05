@@ -45,7 +45,8 @@ public class WelcomeActivity extends AppCompatActivity {
         // 隐藏状态栏，使内容全屏显示(必须要在setContentView方法执行前执行)
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_welcome);
+
         mIv = (ImageView) findViewById(R.id.mIv);
 
 //        Glide.with(this)

@@ -1,15 +1,15 @@
-package com.example.jiangchuanfa.projecttraining.adapter;
+package com.example.jiangchuanfa.projecttraining.controller.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 
-import com.example.jiangchuanfa.projecttraining.fragment.shop.BrandFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.shop.ClassifyFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.shop.GiftFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.shop.HomeFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.shop.SpecialFragment;
+import com.example.jiangchuanfa.projecttraining.controller.fragment.shop.BrandFragment;
+import com.example.jiangchuanfa.projecttraining.controller.fragment.shop.ClassifyFragment;
+import com.example.jiangchuanfa.projecttraining.controller.fragment.shop.GiftFragment;
+import com.example.jiangchuanfa.projecttraining.controller.fragment.shop.HomeFragment;
+import com.example.jiangchuanfa.projecttraining.controller.fragment.shop.SpecialFragment;
 
 /**
  * Created by crest on 2017/7/6.

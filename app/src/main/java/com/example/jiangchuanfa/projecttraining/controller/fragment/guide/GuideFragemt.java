@@ -1,4 +1,4 @@
-package com.example.jiangchuanfa.projecttraining.fragment.guide;
+package com.example.jiangchuanfa.projecttraining.controller.fragment.guide;
 
 import android.net.Uri;
 import android.os.Bundle;

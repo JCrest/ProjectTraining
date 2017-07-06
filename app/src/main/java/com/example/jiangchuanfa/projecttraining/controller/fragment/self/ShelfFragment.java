@@ -1,4 +1,4 @@
-package com.example.jiangchuanfa.projecttraining.fragment.self;
+package com.example.jiangchuanfa.projecttraining.controller.fragment.self;
 
 import android.graphics.Color;
 import android.view.Gravity;

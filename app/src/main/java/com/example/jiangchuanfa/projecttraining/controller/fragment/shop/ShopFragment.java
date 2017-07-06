@@ -1,4 +1,4 @@
-package com.example.jiangchuanfa.projecttraining.fragment.shop;
+package com.example.jiangchuanfa.projecttraining.controller.fragment.shop;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -7,7 +7,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.jiangchuanfa.projecttraining.R;
-import com.example.jiangchuanfa.projecttraining.adapter.MyFragmentPagerAdapter;
+import com.example.jiangchuanfa.projecttraining.controller.adapter.MyFragmentPagerAdapter;
 import com.example.jiangchuanfa.projecttraining.base.BaseFragment;
 
 import butterknife.BindView;

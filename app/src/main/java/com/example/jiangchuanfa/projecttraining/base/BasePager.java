@@ -23,8 +23,8 @@ public class BasePager {
     TextView tvTitle;
     @BindView(R.id.tv_text)
     TextView tvText;
-    @BindView(R.id.ib_back)
-    ImageButton ibBack;
+    @BindView(R.id.ib_search)
+    ImageButton ibSearch;
     @BindView(R.id.ib_cart)
     ImageButton ibCart;
     @BindView(R.id.ib_navigation_menu)
@@ -43,10 +43,11 @@ public class BasePager {
     public void initData() {
     }
 
-    @OnClick({R.id.ib_back, R.id.ib_cart, R.id.ib_navigation_menu, R.id.ib_setting})
+
+    @OnClick({R.id.ib_search, R.id.ib_cart, R.id.ib_navigation_menu, R.id.ib_setting})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.ib_back:
+            case R.id.ib_search:
                 break;
             case R.id.ib_cart:
                 break;

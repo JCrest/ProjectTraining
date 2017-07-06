@@ -16,7 +16,7 @@
         android:id="@+id/rg_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.11"
+        android:layout_weight="0.1"
         android:background="@color/appad_v18_button_success_normal_bg_night"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -31,7 +31,7 @@
             android:drawablePadding="5dp"
             android:drawableTop="@drawable/rb_shop_drawabletop_selector"
             android:gravity="center"
-            android:text="主页"
+            android:text="商店"
             android:textColor="@drawable/rb_shop_drawabletop_textcolor_selector" />
 
         <RadioButton

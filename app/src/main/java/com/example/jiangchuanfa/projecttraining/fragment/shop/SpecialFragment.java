@@ -1,7 +1,8 @@
-package com.example.jiangchuanfa.projecttraining.fragment;
+package com.example.jiangchuanfa.projecttraining.fragment.shop;
 
 import android.view.View;
 
+import com.example.jiangchuanfa.projecttraining.R;
 import com.example.jiangchuanfa.projecttraining.base.BaseFragment;
 
 /**
@@ -11,6 +12,6 @@ import com.example.jiangchuanfa.projecttraining.base.BaseFragment;
 public class SpecialFragment extends BaseFragment {
     @Override
     public View initView() {
-        return null;
+        return View.inflate(getActivity(), R.layout.ceshi, null);
     }
 }

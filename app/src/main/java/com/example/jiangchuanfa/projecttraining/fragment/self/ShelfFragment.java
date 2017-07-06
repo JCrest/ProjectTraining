@@ -1,4 +1,4 @@
-package com.example.jiangchuanfa.projecttraining.fragment;
+package com.example.jiangchuanfa.projecttraining.fragment.self;
 
 import android.graphics.Color;
 import android.view.Gravity;
@@ -11,7 +11,7 @@ import com.example.jiangchuanfa.projecttraining.base.BaseFragment;
  * Created by crest on 2017/7/6.
  */
 
-public class ShareFragment extends BaseFragment {
+public class ShelfFragment extends BaseFragment {
     private TextView textView;
 
     @Override
@@ -23,7 +23,7 @@ public class ShareFragment extends BaseFragment {
     @Override
     public void initData() {
         super.initData();
-        textView.setText("分享");
+        textView.setText("个人");
         textView.setTextColor(Color.WHITE);
         textView.setTextSize(25);
         textView.setGravity(Gravity.CENTER);

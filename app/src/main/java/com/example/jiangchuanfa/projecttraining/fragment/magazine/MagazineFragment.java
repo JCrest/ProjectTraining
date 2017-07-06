@@ -1,4 +1,4 @@
-package com.example.jiangchuanfa.projecttraining.fragment;
+package com.example.jiangchuanfa.projecttraining.fragment.magazine;
 
 import android.graphics.Color;
 import android.view.Gravity;

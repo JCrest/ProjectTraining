@@ -1,4 +1,4 @@
-package com.example.jiangchuanfa.projecttraining.fragment;
+package com.example.jiangchuanfa.projecttraining.fragment.shop;
 
 import android.view.View;
 

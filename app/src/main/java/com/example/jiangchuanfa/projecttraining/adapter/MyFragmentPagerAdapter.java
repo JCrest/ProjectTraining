@@ -5,11 +5,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 
-import com.example.jiangchuanfa.projecttraining.fragment.BrandFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.ClassifyFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.GiftFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.HomeFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.SpecialFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.shop.BrandFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.shop.ClassifyFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.shop.GiftFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.shop.HomeFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.shop.SpecialFragment;
 
 /**
  * Created by crest on 2017/7/6.

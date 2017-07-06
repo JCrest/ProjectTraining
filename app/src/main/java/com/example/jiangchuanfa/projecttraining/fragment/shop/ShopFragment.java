@@ -1,4 +1,4 @@
-package com.example.jiangchuanfa.projecttraining.fragment;
+package com.example.jiangchuanfa.projecttraining.fragment.shop;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;

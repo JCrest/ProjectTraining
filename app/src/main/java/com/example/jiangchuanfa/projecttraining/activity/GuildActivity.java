@@ -13,7 +13,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.jiangchuanfa.projecttraining.R;
-import com.example.jiangchuanfa.projecttraining.fragment.GuideFragemt;
+import com.example.jiangchuanfa.projecttraining.fragment.guide.GuideFragemt;
 
 import java.util.ArrayList;
 import java.util.List;

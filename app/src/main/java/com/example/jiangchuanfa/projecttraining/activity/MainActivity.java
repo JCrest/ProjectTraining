@@ -11,11 +11,11 @@ import android.widget.RadioGroup;
 import com.example.jiangchuanfa.projecttraining.R;
 import com.example.jiangchuanfa.projecttraining.base.BaseActivity;
 import com.example.jiangchuanfa.projecttraining.base.BaseFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.ExpertFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.MagazineFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.ShareFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.ShelfFragment;
-import com.example.jiangchuanfa.projecttraining.fragment.ShopFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.expert.ExpertFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.magazine.MagazineFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.share.ShareFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.self.ShelfFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.shop.ShopFragment;
 
 import java.util.ArrayList;
 

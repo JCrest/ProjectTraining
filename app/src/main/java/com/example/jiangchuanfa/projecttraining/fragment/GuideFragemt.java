@@ -39,7 +39,7 @@ public class GuideFragemt extends Fragment {
             uri = Uri.parse("android.resource://" + getActivity().getPackageName() + "/" + R.raw.feature5);
         }
         /**播放Gif**/
-        if(index == 5){
+        if (index == 5) {
             Glide.with(this)
                     .load(uri)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
@@ -54,14 +54,4 @@ public class GuideFragemt extends Fragment {
         return imageView;
     }
 
-    /**
-     * 记得在销毁的时候让播放的视频终止
-//     */
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        if (customVideoView != null) {
-//            customVideoView.stopPlayback();
-//        }
-//    }
 }

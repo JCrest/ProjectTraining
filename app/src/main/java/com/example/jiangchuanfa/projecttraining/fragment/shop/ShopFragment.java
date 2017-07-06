@@ -66,15 +66,8 @@ public class ShopFragment extends BaseFragment {
 
     @Override
     public void initData() {
-        super.initData();
+        tvTitle.setText("商店");
     }
-
-
-
-
-
-
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

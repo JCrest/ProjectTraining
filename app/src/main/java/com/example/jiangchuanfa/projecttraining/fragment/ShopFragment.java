@@ -1,10 +1,8 @@
 package com.example.jiangchuanfa.projecttraining.fragment;
 
-import android.graphics.Color;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.TextView;
 
+import com.example.jiangchuanfa.projecttraining.R;
 import com.example.jiangchuanfa.projecttraining.base.BaseFragment;
 
 /**
@@ -13,21 +11,14 @@ import com.example.jiangchuanfa.projecttraining.base.BaseFragment;
 
 public class ShopFragment extends BaseFragment {
 
-
-    private TextView textView;
-
     @Override
     public View initView() {
-        textView = new TextView(getActivity());
-        return textView;
+        View view = View.inflate(getActivity(), R.layout.fragment_shop, null);
+        return view;
     }
 
     @Override
     public void initData() {
         super.initData();
-        textView.setText("商店");
-        textView.setTextColor(Color.WHITE);
-        textView.setTextSize(25);
-        textView.setGravity(Gravity.CENTER);
     }
 }

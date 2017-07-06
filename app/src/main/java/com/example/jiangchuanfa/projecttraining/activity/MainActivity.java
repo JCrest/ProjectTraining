@@ -1,20 +1,24 @@
 package com.example.jiangchuanfa.projecttraining.activity;
 
+import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.jiangchuanfa.projecttraining.R;
 import com.example.jiangchuanfa.projecttraining.base.BaseActivity;
+import com.example.jiangchuanfa.projecttraining.fragment.ExpertFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.MagazineFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.ShareFragment;
+import com.example.jiangchuanfa.projecttraining.fragment.ShelfFragment;
 import com.example.jiangchuanfa.projecttraining.fragment.ShopFragment;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
+
 
     @BindView(R.id.fl_main)
     FrameLayout flMain;
@@ -31,21 +35,51 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.rg_main)
     RadioGroup rgMain;
 
-    private Fragment[] mFragments;
-
     @Override
     public void initListener() {
 
+        rgMain.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                switchFragment(checkedId);
+            }
+        });
     }
 
-    @Override
-    public void initView() {
+    private void switchFragment(int checkedId) {
+        Fragment fragment = null;
+        switch (checkedId) {
+            case R.id.rb_shop:
+                fragment = new ShopFragment();
+                Log.e("TAG", "switchFragment: " + fragment);
 
+                break;
+            case R.id.rb_magazine:
+                fragment = new MagazineFragment();
+                Log.e("TAG", "switchFragment: " + fragment);
+                break;
+            case R.id.rb_expert:
+                fragment = new ExpertFragment();
+                Log.e("TAG", "switchFragment: " + fragment);
+                break;
+            case R.id.rb_share:
+                fragment = new ShareFragment();
+                Log.e("TAG", "switchFragment: " + fragment);
+                break;
+            case R.id.rb_self:
+                fragment = new ShelfFragment();
+                Log.e("TAG", "switchFragment: " + fragment);
+                break;
+        }
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fl_main, fragment).commit();
     }
+
 
     @Override
     public void initData() {
-
+        switchFragment(R.id.rb_shop);
     }
 
     @Override
@@ -54,21 +88,6 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.rb_shop, R.id.rb_magazine, R.id.rb_expert, R.id.rb_share, R.id.rb_self})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.rb_shop:
-                break;
-            case R.id.rb_magazine:
-                break;
-            case R.id.rb_expert:
-                break;
-            case R.id.rb_share:
-                break;
-            case R.id.rb_self:
-                break;
-        }
-    }
 }
 
 

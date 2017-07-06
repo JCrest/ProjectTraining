@@ -16,8 +16,8 @@
         android:id="@+id/rg_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.13"
-        android:background="@android:color/black"
+        android:layout_weight="0.11"
+        android:background="@color/appad_v18_button_success_normal_bg_night"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:button="@null"
             android:drawablePadding="5dp"
-            android:drawableTop="@drawable/rb_shop_drawabletop_selector"
+            android:drawableTop="@drawable/rb_magazine_drawabletop_selector"
             android:gravity="center"
             android:text="杂志"
             android:textColor="@drawable/rb_shop_drawabletop_textcolor_selector" />
@@ -54,7 +54,7 @@
             android:layout_weight="1"
             android:button="@null"
             android:drawablePadding="5dp"
-            android:drawableTop="@drawable/rb_shop_drawabletop_selector"
+            android:drawableTop="@drawable/rb_expert_drawabletop_selector"
             android:gravity="center"
             android:text="达人"
             android:textColor="@drawable/rb_shop_drawabletop_textcolor_selector" />
@@ -66,7 +66,7 @@
             android:layout_weight="1"
             android:button="@null"
             android:drawablePadding="5dp"
-            android:drawableTop="@drawable/rb_shop_drawabletop_selector"
+            android:drawableTop="@drawable/rb_share_drawabletop_selector"
             android:gravity="center"
             android:text="分享"
             android:textColor="@drawable/rb_shop_drawabletop_textcolor_selector" />

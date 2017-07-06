@@ -3,6 +3,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     buildToolsVersion "25.0.3"
+
+
     defaultConfig {
         applicationId "com.example.jiangchuanfa.projecttraining"
         minSdkVersion 23

@@ -26,27 +26,21 @@ import okhttp3.Call;
  */
 
 public class BrandFragment extends BaseFragment {
+
+
     @BindView(R.id.rv)
-    RecyclerView rvcyclerview;
+    RecyclerView rv;
     Unbinder unbinder;
-//    @BindView(R.id.recyclerview)
-//    RecyclerView recyclerview;
-//    Unbinder unbinder;
-//    @BindView(R.id.recyclerview)
-//    RecyclerView recyclerview;
-//    Unbinder unbinder;
-
-//    private RecyclerView recyclerView;
-
-
     private String url;
-    BrandAdapter adapter;
+    private BrandAdapter adapter;
 
     @Override
     public View initView() {
         View view = View.inflate(getActivity(), R.layout.fragment_brand, null);
-//        recyclerView = view.findViewById(recyclerview);
         unbinder = ButterKnife.bind(this, view);
+        rv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+        adapter = new BrandAdapter(context);
+        rv.setAdapter(adapter);
         return view;
     }
 
@@ -87,8 +81,6 @@ public class BrandFragment extends BaseFragment {
 
                     }
                 });
-
-
     }
 
     /**
@@ -99,23 +91,13 @@ public class BrandFragment extends BaseFragment {
     private void processData(String json) {
         BrandBean brandBean = new Gson().fromJson(json, BrandBean.class);
         Log.e("TAG", "数组解析数据成功======" + brandBean.getData().getItems().get(0).getBrand_name());
-
-//        recyclerview.setLayoutManager(new GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false));
-        //设置布局管理器
-
-        rvcyclerview.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-        //设置RecyclerView的适配器
-        adapter = new BrandAdapter(context, brandBean.getData().getItems(), rvcyclerview);
-        rvcyclerview.setAdapter(adapter);
-
+        adapter.refresh(brandBean.getData().getItems());
     }
-
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
-
     }
 
 }

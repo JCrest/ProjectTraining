@@ -34,12 +34,6 @@ public class ShopFragment extends BaseFragment {
     ViewPager viewPager;
     Unbinder unbinder;
     private MyFragmentPagerAdapter myFragmentPagerAdapter;
-//
-//    private TabLayout.Tab one;
-//    private TabLayout.Tab two;
-//    private TabLayout.Tab three;
-//    private TabLayout.Tab four;
-//    private TabLayout.Tab five;
 
     @Override
     public View initView() {
@@ -53,14 +47,6 @@ public class ShopFragment extends BaseFragment {
 
         //将TabLayout与ViewPager绑定在一起
         tabLayout.setupWithViewPager(viewPager);
-
-
-//        //指定Tab的位置
-//        one = tabLayout.getTabAt(0);
-//        two = tabLayout.getTabAt(1);
-//        three = tabLayout.getTabAt(2);
-//        four = tabLayout.getTabAt(3);
-//        five = tabLayout.getTabAt(4);
         return view;
     }
 

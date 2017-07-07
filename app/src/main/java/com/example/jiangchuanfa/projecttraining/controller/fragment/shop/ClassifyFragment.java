@@ -23,6 +23,7 @@ import okhttp3.Call;
 
 /**
  * Created by crest on 2017/7/6.
+ * 分类的碎片
  */
 
 public class ClassifyFragment extends BaseFragment {
@@ -47,6 +48,7 @@ public class ClassifyFragment extends BaseFragment {
         Log.e("TAG", "商店分类总的网络地址=====" + url);
         String saveJson = CacheUtils.getString(context, url);
         if (!TextUtils.isEmpty(saveJson)) {
+            Log.e("TAG", "商店分类总的json=====" + saveJson);
             processData(saveJson);
         }
         getDataFromNet(url);
@@ -60,8 +62,6 @@ public class ClassifyFragment extends BaseFragment {
         OkHttpUtils
                 .get()
                 .url(url)
-//                .addParams("username", "atguig")
-//                .addParams("password", "123")
                 .build()
                 .execute(new StringCallback() {
                     @Override

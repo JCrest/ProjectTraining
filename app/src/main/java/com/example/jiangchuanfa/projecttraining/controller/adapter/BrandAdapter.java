@@ -12,12 +12,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.jiangchuanfa.projecttraining.R;
-import com.example.jiangchuanfa.projecttraining.modle.bean.ClassifyBean;
+import com.example.jiangchuanfa.projecttraining.modle.bean.BrandBean;
 import com.example.jiangchuanfa.projecttraining.utils.BitmapCacheUtils;
 import com.example.jiangchuanfa.projecttraining.utils.NetCacheUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 import java.util.List;
 
@@ -25,11 +24,10 @@ import java.util.List;
  * Created by crest on 2017/7/7.
  */
 
-public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHolder> {
-
+public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.ViewHolder> {
 
     private final Context context;
-    private final List<ClassifyBean.DataBean.ItemsBean> datas;
+    private final List<BrandBean.DataBean.ItemsBean> datas;
     private final RecyclerView recyclerview;
 
     private Handler handler = new Handler() {
@@ -60,13 +58,10 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHo
     private BitmapCacheUtils bitmapCacheUtils;
     private DisplayImageOptions options;
 
-    public ClassifyAdapter(Context context,
-                           List<ClassifyBean.DataBean.ItemsBean> items,
-                           RecyclerView recyclerview) {
-        this.context = context;
+    public BrandAdapter(Context context, List<BrandBean.DataBean.ItemsBean> items, RecyclerView recyclerview) {
+        this.context=context;
         this.datas = items;
         this.recyclerview = recyclerview;
-
         bitmapCacheUtils = new BitmapCacheUtils(handler);
         options = new DisplayImageOptions.Builder()
                 .showImageOnLoading(R.drawable.news_pic_default)
@@ -77,12 +72,10 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHo
                 .considerExifParams(true)
                 .bitmapConfig(Bitmap.Config.RGB_565)
                 //设置矩形圆角图片
-                .displayer(new RoundedBitmapDisplayer(15))
+//                .displayer(new RoundedBitmapDisplayer(15))
                 .build();
 
     }
-
-
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -90,17 +83,11 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
-        //1.根据位置得到数据
-        ClassifyBean.DataBean.ItemsBean itemsBean = datas.get(position);
-//        Glide.with(context).load(itemsBean.getCover_new_img())
-//
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .transform(new CornersTransform(context,5))
-//                .placeholder(R.color.white)
-//                .error(R.drawable.news_pic_default)
-//                .into(holder.ivIcon);
-        ImageLoader.getInstance().displayImage(itemsBean.getCover_new_img(), holder.ivIcon, options);
+    public void onBindViewHolder(ViewHolder holder, int position) {
+//1.根据位置得到数据
+        BrandBean.DataBean.ItemsBean itemsBean = datas.get(position);
+
+        ImageLoader.getInstance().displayImage(itemsBean.getBrand_logo(), holder.ivIcon, options);
 
     }
 
@@ -116,26 +103,13 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHo
         public ViewHolder(View view) {
             super(view);
             ivIcon = view.findViewById(R.id.iv_icon);
-//            if(ivIcon == null) {
-//                ivIcon = ButterKnife.findById((Activity) context, R.id.iv_icon);
-//            }
-           ivIcon.setOnClickListener(new View.OnClickListener() {
+            ivIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(context, "在这还崩！", Toast.LENGTH_SHORT).show();
                 }
             });
 
-//            //设置点击事件
-//            view.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                    Intent intent = new Intent(context, PicassoSampleActivity.class);
-//                    intent.putExtra("url", Constants.BASE_URL + datas.get(getLayoutPosition()).getListimage());
-//                    context.startActivity(intent);
-//                }
-//            });
         }
     }
 }

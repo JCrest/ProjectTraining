@@ -1,4 +1,4 @@
-package com.example.jiangchuanfa.projecttraining.controller.fragment.shop;
+package com.example.jiangchuanfa.projecttraining.controller.fragment.shop.viewfragment;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -42,8 +42,10 @@ public class ClassifyFragment extends BaseFragment {
         //设置RecyclerView的适配器
         adapter = new ClassifyAdapter(context);
         recyclerview.setAdapter(adapter);
+
         return view;
     }
+
 
     @Override
     public void initData() {

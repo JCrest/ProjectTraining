@@ -11,6 +11,10 @@
     <color name="font_main_p">#F85959</color>
     <color name="ssqianhui">#F4F5F7</color>
 
+    <color name="goodslist_pic_bg">#313335</color>
+    <color name="screen_bg">#1E2125</color>
+    <color name="goods_price">#6F98C3</color>
+    <color name="goods_price_bg">#99CCFF</color>
 
 
     <color name="account_bg">#fffafafa</color>

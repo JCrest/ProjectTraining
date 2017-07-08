@@ -18,7 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.1"
-        android:background="@color/appad_v18_button_success_normal_bg_night"
+
+        android:background="@color/screen_bg"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -26,9 +27,11 @@
         <RadioButton
             android:id="@+id/rb_shop"
             android:layout_width="0dp"
+
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
+
             android:drawablePadding="5dp"
             android:drawableTop="@drawable/rb_shop_drawabletop_selector"
             android:gravity="center"

@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.jiangchuanfa.projecttraining.R;
+import com.example.jiangchuanfa.projecttraining.activity.MainActivity;
 import com.example.jiangchuanfa.projecttraining.modle.bean.ClassifyBean;
 import com.example.jiangchuanfa.projecttraining.utils.CornersTransform;
 
@@ -55,11 +56,12 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHo
 //    private BitmapCacheUtils bitmapCacheUtils;
 //    private DisplayImageOptions options;
 
-    public ClassifyAdapter(Context context){
+    public ClassifyAdapter(Context context) {
         this.context = context;
     }
+
     public void refresh(List<ClassifyBean.DataBean.ItemsBean> items) {
-       //this.context = context;
+        //this.context = context;
         this.datas.addAll(items);
         //this.recyclerview = recyclerview;
 
@@ -81,7 +83,6 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHo
     }
 
 
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(View.inflate(context, R.layout.item_classify_fragment, null));
@@ -93,12 +94,26 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHo
         ClassifyBean.DataBean.ItemsBean itemsBean = datas.get(position);
         Glide.with(context).load(itemsBean.getCover_new_img())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .transform(new CornersTransform(context,5))
+                .transform(new CornersTransform(context, 5))
                 .placeholder(R.color.white)
                 .error(R.drawable.news_pic_default)
                 .into(holder.ivIcon);
+
+        holder.ivIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "在这还崩"+position, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "在这还崩！", Toast.LENGTH_SHORT).show();
+                MainActivity mainActivity = (MainActivity) context;
+                mainActivity.exchangeFragment();
+                mainActivity.getRgMain().check(R.id.rb_shop);
+            }
+        });
 //       holder.ivIcon.setImageResource(R.drawable.abc_ic_search_api_mtrl_alpha);
         //ImageLoader.getInstance().displayImage(itemsBean.getCover_new_img(), holder.ivIcon, options);
+        if (clickListener != null) {
+            clickListener.onItemClick(position);
+        }
 
 
     }
@@ -115,26 +130,26 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHo
         public ViewHolder(View view) {
             super(view);
             ivIcon = view.findViewById(R.id.iv_icon);
-//            if(ivIcon == null) {
-//                ivIcon = ButterKnife.findById((Activity) context, R.id.iv_icon);
-//            }
-           ivIcon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(context, "在这还崩！", Toast.LENGTH_SHORT).show();
-                }
-            });
-
-//            //设置点击事件
-//            view.setOnClickListener(new View.OnClickListener() {
+//            ivIcon.setOnClickListener(new View.OnClickListener() {
 //                @Override
-//                public void onClick(View v) {
+//                public void onClick(View view) {
 //
-//                    Intent intent = new Intent(context, PicassoSampleActivity.class);
-//                    intent.putExtra("url", Constants.BASE_URL + datas.get(getLayoutPosition()).getListimage());
-//                    context.startActivity(intent);
+//
 //                }
 //            });
         }
     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    public interface OnItemClickListener {
+        public void onItemClick(int position);
+    }
+    private OnItemClickListener clickListener;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.clickListener = (OnItemClickListener) listener;
+
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.example.jiangchuanfa.projecttraining.controller.fragment.shop;
+package com.example.jiangchuanfa.projecttraining.controller.fragment.shop.viewfragment;
 
 import android.view.View;
 import android.widget.ImageView;

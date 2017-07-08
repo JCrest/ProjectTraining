@@ -1,4 +1,4 @@
-package com.example.jiangchuanfa.projecttraining.controller.fragment.shop;
+package com.example.jiangchuanfa.projecttraining.controller.fragment.shop.viewfragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;

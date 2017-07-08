@@ -14,11 +14,11 @@ public class Api {
     public static final String SHOP_CATEGORY_URL =SHOP_BASE_URL+"/goods/goodsCategory?app_key=Android&sig=430BD99E6C913B8B8C3ED109737ECF15%7C830952120106768&v=1.0";
 
     //商品分类路径：头部
-    public static final String SHOP_HEAD_URL = SHOP_BASE_URL+"Share?app_key=Android&cat_code=";
+    public static final String SHOP_HEAD_URL = SHOP_BASE_URL+"/goods/goodsShare?app_key=Android&cat_code=";
     //商品分类路径：尾部
     public static final String SHOP_TAIL_URL = "&count=10&coverId=1&page=1&sig=3D3968703BE211CC6D931C9D4F737FB4%7C290216330933368&v=1.0";
-
-
+//    http://mobile.iliangcang.com/goods/goodsShare?app_key=Android&cat_code=0045&count=10&coverId=1&page=1&sig=3D3968703BE211CC6D931C9D4F737FB4%7C290216330933368&v=1.0
+//    http://mobile.iliangcang.comShare?app_key=Android&cat_code=0198&count=10&coverId=1&page=1&sig=3D3968703BE211CC6D931C9D4F737FB4%7C290216330933368&v=1.0
     //商店分类：家居
     public static final String SHOP_CLEANING_URL =SHOP_HEAD_URL+"0045"+SHOP_TAIL_URL;
     //商品分类：家具

@@ -1,4 +1,4 @@
-package com.example.jiangchuanfa.projecttraining.controller.fragment.shop;
+package com.example.jiangchuanfa.projecttraining.controller.fragment.shop.viewfragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,8 +8,8 @@ import android.view.View;
 import com.example.jiangchuanfa.projecttraining.R;
 import com.example.jiangchuanfa.projecttraining.base.BaseFragment;
 import com.example.jiangchuanfa.projecttraining.config.Api;
-import com.example.jiangchuanfa.projecttraining.controller.adapter.HomeAdapter;
-import com.example.jiangchuanfa.projecttraining.modle.bean.HomeBean;
+import com.example.jiangchuanfa.projecttraining.controller.adapter.SpecialAdapter;
+import com.example.jiangchuanfa.projecttraining.modle.bean.SpecialBean;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -23,17 +23,18 @@ import okhttp3.Call;
  * Created by crest on 2017/7/6.
  */
 
-public class HomeFragment extends BaseFragment {
-    private static final String TAG = HomeFragment.class.getSimpleName();
-    @BindView(R.id.rv_home)
-    RecyclerView rvHome;
+public class SpecialFragment extends BaseFragment {
+    private static final String TAG = SpecialFragment.class.getSimpleName();
+    @BindView(R.id.rv_special)
+    RecyclerView rvSpecial;
     Unbinder unbinder;
-    private String homeUrl;
-    private HomeAdapter adapter;
+    private String specialUrl;
+    private SpecialAdapter adapter;
 
     @Override
     public View initView() {
-        View view = View.inflate(getActivity(), R.layout.fragment_home, null);
+
+        View view = View.inflate(getActivity(), R.layout.fragment_special, null);
         unbinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -47,11 +48,11 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void getDataFromNet() {
-        homeUrl = Api.SHOP_HOME_URL;
-        Log.e(TAG, "商店首页总的网络地址=====" + homeUrl);
+        specialUrl = Api.SHOP_SPECIAL_URL;
+        Log.e(TAG, "商店专题总的网络地址=====" + specialUrl);
         OkHttpUtils
                 .get()
-                .url(homeUrl)
+                .url(specialUrl)
                 .build()
                 .execute(new MyStringCallback());
     }
@@ -72,17 +73,16 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void processData(String json) {
-        //解析数据
-        HomeBean homeBean = new Gson().fromJson(json, HomeBean.class);
-        Log.e(TAG, "数据解析结果=="+homeBean.getData().getItems().getList().get(0).getHome_id());
+//        解析数据
+        SpecialBean specialBean = new Gson().fromJson(json, SpecialBean.class);
+        Log.e(TAG, "数据解析结果=="+specialBean.getData().getItems().get(0).getAccess_url());
         //设置适配器
-        adapter = new HomeAdapter(context,homeBean.getData().getItems().getList());
-        rvHome.setAdapter(adapter);
+        adapter = new SpecialAdapter(context,specialBean.getData().getItems());
+        rvSpecial.setAdapter(adapter);
         LinearLayoutManager manager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-        rvHome.setLayoutManager(manager);
+        rvSpecial.setLayoutManager(manager);
 
     }
-
 
     @Override
     public void onDestroyView() {

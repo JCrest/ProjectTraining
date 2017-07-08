@@ -12,12 +12,14 @@ import com.example.jiangchuanfa.projecttraining.R;
 import com.example.jiangchuanfa.projecttraining.base.BaseActivity;
 import com.example.jiangchuanfa.projecttraining.base.BaseFragment;
 import com.example.jiangchuanfa.projecttraining.controller.fragment.expert.ExpertFragment;
+import com.example.jiangchuanfa.projecttraining.controller.fragment.goodslistfragment.GoodsListFragment;
 import com.example.jiangchuanfa.projecttraining.controller.fragment.magazine.MagazineFragment;
-import com.example.jiangchuanfa.projecttraining.controller.fragment.share.ShareFragment;
 import com.example.jiangchuanfa.projecttraining.controller.fragment.self.ShelfFragment;
+import com.example.jiangchuanfa.projecttraining.controller.fragment.share.ShareFragment;
 import com.example.jiangchuanfa.projecttraining.controller.fragment.shop.ShopFragment;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import butterknife.BindView;
 
@@ -38,6 +40,8 @@ public class MainActivity extends BaseActivity {
     RadioButton rbSelf;
     @BindView(R.id.rg_main)
     RadioGroup rgMain;
+    private GoodsListFragment goodsListFragment;
+
     private ArrayList<BaseFragment> fragments;
     //Fragment页面的下标位置
     private int position;
@@ -52,6 +56,7 @@ public class MainActivity extends BaseActivity {
         fragments.add(new ExpertFragment());//达人
         fragments.add(new ShareFragment());//分享
         fragments.add(new ShelfFragment());//个人
+        goodsListFragment = new GoodsListFragment();
     }
 
     @Override
@@ -136,6 +141,16 @@ public class MainActivity extends BaseActivity {
     public int getLayoutId() {
         return R.layout.activity_main;
     }
+
+    public RadioGroup getRgMain() {
+        return rgMain;
+    }
+
+    public void exchangeFragment() {
+        Collections.replaceAll(fragments, fragments.get(0), goodsListFragment);
+        switchFragment(R.id.rb_shop);
+    }
+
 
 
 }

@@ -1,5 +1,7 @@
 package com.example.jiangchuanfa.projecttraining.activity;
 
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -57,7 +59,10 @@ public class MainActivity extends BaseActivity {
         fragments.add(new ShareFragment());//分享
         fragments.add(new ShelfFragment());//个人
         goodsListFragment = new GoodsListFragment();
+
+
     }
+
 
     @Override
     public void initListener() {
@@ -135,6 +140,28 @@ public class MainActivity extends BaseActivity {
         switchFragment(R.id.rb_shop);
         rgMain.check(R.id.rb_shop);
 
+
+        //定义RadioButton数组用来装RadioButton，改变drawableTop大小
+        RadioButton[] rb = new RadioButton[5];
+       //将RadioButton装进数组中
+        rb[0] = rbShop;
+        rb[1] = rbMagazine;
+        rb[2] = rbExpert;
+        rb[3] = rbShare;
+        rb[4] = rbSelf;
+        //for循环对每一个RadioButton图片进行缩放
+        for (int i = 0; i < rb.length; i++) {
+            //挨着给每个RadioButton加入drawable限制边距以控制显示大小
+            Drawable[] drawables = rb[i].getCompoundDrawables();
+            //获取drawables，2/5表示图片要缩小的比例
+            Rect r = new Rect(0, 0, drawables[1].getMinimumWidth() * 3 / 4, drawables[1].getMinimumHeight() * 3 / 4);
+            //定义一个Rect边界
+            drawables[1].setBounds(r);
+            //给每一个RadioButton设置图片大小
+            rb[i].setCompoundDrawables(null, drawables[1], null, null);
+        }
+
+
     }
 
     @Override
@@ -150,7 +177,6 @@ public class MainActivity extends BaseActivity {
         Collections.replaceAll(fragments, fragments.get(0), goodsListFragment);
         switchFragment(R.id.rb_shop);
     }
-
 
 
 }

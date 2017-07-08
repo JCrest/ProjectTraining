@@ -10,14 +10,14 @@
         android:id="@+id/fl_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.9" />
+        android:layout_weight="0.92" />
 
     <RadioGroup
 
         android:id="@+id/rg_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1"
+        android:layout_weight="0.08"
 
         android:background="@color/screen_bg"
         android:gravity="center_vertical"
@@ -32,10 +32,11 @@
             android:layout_weight="1"
             android:button="@null"
 
-            android:drawablePadding="5dp"
+            android:drawablePadding="3dp"
             android:drawableTop="@drawable/rb_shop_drawabletop_selector"
             android:gravity="center"
             android:text="商店"
+            android:textSize="10sp"
             android:textColor="@drawable/rb_shop_drawabletop_textcolor_selector" />
 
         <RadioButton
@@ -44,10 +45,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:drawablePadding="5dp"
+            android:drawablePadding="3dp"
             android:drawableTop="@drawable/rb_magazine_drawabletop_selector"
             android:gravity="center"
             android:text="杂志"
+            android:textSize="10sp"
             android:textColor="@drawable/rb_shop_drawabletop_textcolor_selector" />
 
 
@@ -57,10 +59,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:drawablePadding="5dp"
+            android:drawablePadding="3dp"
             android:drawableTop="@drawable/rb_expert_drawabletop_selector"
             android:gravity="center"
             android:text="达人"
+            android:textSize="10sp"
             android:textColor="@drawable/rb_shop_drawabletop_textcolor_selector" />
 
         <RadioButton
@@ -69,10 +72,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:drawablePadding="5dp"
+            android:drawablePadding="3dp"
             android:drawableTop="@drawable/rb_share_drawabletop_selector"
             android:gravity="center"
             android:text="分享"
+            android:textSize="10sp"
             android:textColor="@drawable/rb_shop_drawabletop_textcolor_selector" />
 
         <RadioButton
@@ -81,10 +85,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:drawablePadding="5dp"
+            android:drawablePadding="3dp"
             android:drawableTop="@drawable/rb_self_drawabletop_selector"
             android:gravity="center"
             android:text="个人"
+            android:textSize="10sp"
             android:textColor="@drawable/rb_shop_drawabletop_textcolor_selector" />
     </RadioGroup>
 

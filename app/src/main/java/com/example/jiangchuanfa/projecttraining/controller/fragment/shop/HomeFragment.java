@@ -1,5 +1,6 @@
 package com.example.jiangchuanfa.projecttraining.controller.fragment.shop;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -77,6 +78,8 @@ public class HomeFragment extends BaseFragment {
         //设置适配器
         adapter = new HomeAdapter(context,homeBean.getData().getItems().getList());
         rvHome.setAdapter(adapter);
+        LinearLayoutManager manager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        rvHome.setLayoutManager(manager);
 
     }
 

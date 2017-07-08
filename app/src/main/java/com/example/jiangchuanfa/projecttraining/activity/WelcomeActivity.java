@@ -28,7 +28,8 @@ public class WelcomeActivity extends AppCompatActivity {
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             if (msg.what == 1) {
-                Intent intent = new Intent(WelcomeActivity.this, GuildActivity.class);
+//                Intent intent = new Intent(WelcomeActivity.this, WelcomeActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

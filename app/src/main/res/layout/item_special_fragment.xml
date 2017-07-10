@@ -10,11 +10,11 @@
         android:layout_marginBottom="20dp">
 
         <ImageView
-            android:adjustViewBounds="true"
             android:id="@+id/iv_special"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-             android:scaleType="fitXY"/>
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/tv_special_fragment"

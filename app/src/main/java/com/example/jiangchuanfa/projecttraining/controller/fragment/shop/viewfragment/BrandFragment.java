@@ -42,6 +42,7 @@ public class BrandFragment extends BaseFragment {
         adapter = new BrandAdapter(context);
         rv.setAdapter(adapter);
         return view;
+
     }
 
     @Override

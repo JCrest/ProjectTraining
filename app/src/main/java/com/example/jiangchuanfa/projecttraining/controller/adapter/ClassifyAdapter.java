@@ -2,15 +2,14 @@ package com.example.jiangchuanfa.projecttraining.controller.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.jiangchuanfa.projecttraining.R;
-import com.example.jiangchuanfa.projecttraining.activity.MainActivity;
 import com.example.jiangchuanfa.projecttraining.modle.bean.ClassifyBean;
 import com.example.jiangchuanfa.projecttraining.utils.CornersTransform;
 
@@ -23,6 +22,8 @@ import java.util.List;
 
 public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHolder> {
 
+
+    private static final String TAG = ClassifyAdapter.class.getSimpleName();
 
     private final Context context;
     private final List<ClassifyBean.DataBean.ItemsBean> datas = new ArrayList<>();
@@ -99,21 +100,24 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHo
                 .error(R.drawable.news_pic_default)
                 .into(holder.ivIcon);
 
-        holder.ivIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, "在这还崩"+position, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(context, "在这还崩！", Toast.LENGTH_SHORT).show();
-                MainActivity mainActivity = (MainActivity) context;
-                mainActivity.exchangeFragment();
-                mainActivity.getRgMain().check(R.id.rb_shop);
-            }
-        });
+
+//        holder.ivIcon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(context, "在这还崩" + position, Toast.LENGTH_SHORT).show();
+////                Toast.makeText(context, "在这还崩！", Toast.LENGTH_SHORT).show();
+////
+//                MainActivity mainActivity = (MainActivity) context;
+//                mainActivity.exchangeFragment();
+//                mainActivity.getRgMain().check(R.id.rb_shop);
+
+//            }
+//        });
 //       holder.ivIcon.setImageResource(R.drawable.abc_ic_search_api_mtrl_alpha);
         //ImageLoader.getInstance().displayImage(itemsBean.getCover_new_img(), holder.ivIcon, options);
-        if (clickListener != null) {
-            clickListener.onItemClick(position);
-        }
+//        if (clickListener != null) {
+//            clickListener.onItemClick(position);
+//        }
 
 
     }
@@ -130,14 +134,17 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHo
         public ViewHolder(View view) {
             super(view);
             ivIcon = view.findViewById(R.id.iv_icon);
-//            ivIcon.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//
-//
-//                }
-//            });
+            ivIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (clickListener != null) {
+                        clickListener.onItemClick(getLayoutPosition());
+                        Log.e(TAG,"clickListener:"+clickListener);
+                    }
+                }
+            });
         }
+
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,10 +152,11 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.ViewHo
     public interface OnItemClickListener {
         public void onItemClick(int position);
     }
+
     private OnItemClickListener clickListener;
 
     public void setOnItemClickListener(OnItemClickListener listener) {
-        this.clickListener = (OnItemClickListener) listener;
+        this.clickListener =  listener;
 
     }
 

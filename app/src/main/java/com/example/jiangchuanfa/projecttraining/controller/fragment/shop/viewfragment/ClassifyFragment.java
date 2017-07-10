@@ -1,14 +1,18 @@
 package com.example.jiangchuanfa.projecttraining.controller.fragment.shop.viewfragment;
 
+import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
 import com.example.jiangchuanfa.projecttraining.R;
+import com.example.jiangchuanfa.projecttraining.activity.MainActivity;
 import com.example.jiangchuanfa.projecttraining.base.BaseFragment;
 import com.example.jiangchuanfa.projecttraining.config.Api;
 import com.example.jiangchuanfa.projecttraining.controller.adapter.ClassifyAdapter;
+import com.example.jiangchuanfa.projecttraining.controller.fragment.goodslistfragment.GoodsListFragment;
 import com.example.jiangchuanfa.projecttraining.modle.bean.ClassifyBean;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -19,12 +23,15 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import okhttp3.Call;
 
+import static com.example.jiangchuanfa.projecttraining.config.Api.SHOP_ALL_URL;
+
 /**
  * Created by crest on 2017/7/6.
  * 分类的碎片
  */
 
 public class ClassifyFragment extends BaseFragment {
+    private static final String TAG = ClassifyFragment.class.getSimpleName();
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
     Unbinder unbinder;
@@ -42,6 +49,48 @@ public class ClassifyFragment extends BaseFragment {
         //设置RecyclerView的适配器
         adapter = new ClassifyAdapter(context);
         recyclerview.setAdapter(adapter);
+        //自定义接口的调用
+        adapter.setOnItemClickListener(new ClassifyAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                showToast(SHOP_ALL_URL[position]);
+                MainActivity mainActivity = (MainActivity) context;
+//                mainActivity.exchangeFragment();
+                //发送事件
+//                EventBus.getDefault().post(SHOP_ALL_URL[position]);
+
+//                EventBus.getDefault().post(
+//                        new FirstEvent(SHOP_ALL_URL[position]));
+
+
+//                GoodsListFragment fragment2 = GoodsListFragment.newInstance(SHOP_ALL_URL[position]);
+                GoodsListFragment goodsListFragment = new GoodsListFragment();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("data", SHOP_ALL_URL[position]);
+                goodsListFragment.setArguments(bundle);
+
+                FragmentTransaction transaction = mainActivity.getSupportFragmentManager().beginTransaction();
+//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.add(R.id.fl_main, goodsListFragment,"goodsListFragment");
+//                transaction.add(R.id.fl_main, fragment2);
+                transaction.addToBackStack(null);
+//                transaction.addToBackStack(null);
+                transaction.commit();
+//                transaction.commit();
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+               /* //接口不好使？？？？mListener==null???
+                Log.e(TAG, "onItemClick: "+mListener);
+                if (mListener != null) {
+                    mListener.dataTransmission(SHOP_ALL_URL[position]);
+                    Log.e(TAG, "onItemClick: "+ SHOP_ALL_URL[position]);
+                }*/
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            }
+        });
 
         return view;
     }
@@ -51,7 +100,7 @@ public class ClassifyFragment extends BaseFragment {
     public void initData() {
         super.initData();
         url = Api.SHOP_CATEGORY_URL;
-        Log.e("TAG", "商店分类总的网络地址=====" + url);
+        Log.e(TAG, "商店分类总的网络地址=====" + url);
         getDataFromNet(url);
     }
 
@@ -96,4 +145,16 @@ public class ClassifyFragment extends BaseFragment {
         super.onDestroyView();
         unbinder.unbind();
     }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   /* //接口回调的方法
+    public interface OnDataTransmissionListener {
+        public void dataTransmission(String data);
+    }
+
+    private OnDataTransmissionListener mListener;
+
+    public void setOnDataTransmissionListener(OnDataTransmissionListener mListener) {
+        this.mListener = mListener;
+    }*/
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

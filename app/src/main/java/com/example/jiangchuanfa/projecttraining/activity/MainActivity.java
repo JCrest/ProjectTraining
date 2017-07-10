@@ -43,6 +43,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.rg_main)
     RadioGroup rgMain;
     private GoodsListFragment goodsListFragment;
+    private ShopFragment shopFragment;
 
     private ArrayList<BaseFragment> fragments;
     //Fragment页面的下标位置
@@ -50,15 +51,19 @@ public class MainActivity extends BaseActivity {
     //缓存的Fragment
     private Fragment tempFragment;
 
+
     @Override
     public void initView() {
         fragments = new ArrayList<>();
-        fragments.add(new ShopFragment());//商店
+        shopFragment = new ShopFragment();
+        fragments.add(shopFragment);//商店
         fragments.add(new MagazineFragment());//杂志
         fragments.add(new ExpertFragment());//达人
         fragments.add(new ShareFragment());//分享
         fragments.add(new ShelfFragment());//个人
-        goodsListFragment = new GoodsListFragment();
+//        goodsListFragment = new GoodsListFragment();//如果要从集合中替换就创建出来//下面有创建的方法
+
+
 
 
     }
@@ -70,13 +75,18 @@ public class MainActivity extends BaseActivity {
         rgMain.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+
                 switchFragment(checkedId);
             }
         });
+
+
+
     }
 
     private void switchFragment(int checkedId) {
         Fragment fragment = null;
+
         switch (checkedId) {
             case R.id.rb_shop:
                 Log.e("TAG", "switchFragment: " + fragment);
@@ -108,6 +118,9 @@ public class MainActivity extends BaseActivity {
         if (tempFragment != currentFragment) {
             //开启事务
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            if(getSupportFragmentManager().findFragmentByTag("goodsListFragment")!=null) {
+                ft.hide(getSupportFragmentManager().findFragmentByTag("goodsListFragment"));
+            }
             //切换
             if (currentFragment != null) {
                 //是否添加过
@@ -119,7 +132,6 @@ public class MainActivity extends BaseActivity {
                     //如果没有添加就添加
                     ft.add(R.id.fl_main, currentFragment);
                 } else {
-
                     //把之前的隐藏
                     if (tempFragment != null) {
                         ft.hide(tempFragment);
@@ -140,10 +152,17 @@ public class MainActivity extends BaseActivity {
         switchFragment(R.id.rb_shop);
         rgMain.check(R.id.rb_shop);
 
+        resizeDrawableTop();
 
+    }
+
+    /**
+     * 改变底部标签的大小
+     */
+    private void resizeDrawableTop() {
         //定义RadioButton数组用来装RadioButton，改变drawableTop大小
         RadioButton[] rb = new RadioButton[5];
-       //将RadioButton装进数组中
+        //将RadioButton装进数组中
         rb[0] = rbShop;
         rb[1] = rbMagazine;
         rb[2] = rbExpert;
@@ -160,14 +179,14 @@ public class MainActivity extends BaseActivity {
             //给每一个RadioButton设置图片大小
             rb[i].setCompoundDrawables(null, drawables[1], null, null);
         }
-
-
     }
 
     @Override
     public int getLayoutId() {
         return R.layout.activity_main;
     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //以下的方法是其他方法实现的时候的方法
 
     public RadioGroup getRgMain() {
         return rgMain;
@@ -175,6 +194,11 @@ public class MainActivity extends BaseActivity {
 
     public void exchangeFragment() {
         Collections.replaceAll(fragments, fragments.get(0), goodsListFragment);
+        switchFragment(R.id.rb_shop);
+    }
+
+    public void fragmentExchange() {
+        Collections.replaceAll(fragments, fragments.get(0), shopFragment);
         switchFragment(R.id.rb_shop);
     }
 

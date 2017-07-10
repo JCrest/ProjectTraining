@@ -15,7 +15,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.jiangchuanfa.projecttraining.R;
 import com.example.jiangchuanfa.projecttraining.modle.bean.GoodsListBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -31,17 +30,18 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.View
 
     private final Context context;
 
-    private List<GoodsListBean.DataBean.ItemsBean> datas = new ArrayList<>();
+    private final List<GoodsListBean.DataBean.ItemsBean> datas;
 
-    public GoodsListAdapter(Context context) {
+
+    public GoodsListAdapter(Context context, List<GoodsListBean.DataBean.ItemsBean> items) {
         this.context = context;
+        this.datas = items;
     }
 
-    public void refresh(List<GoodsListBean.DataBean.ItemsBean> items) {
-        this.datas.addAll(items);
-        this.notifyDataSetChanged();
-
-    }
+//    public void refresh(List<GoodsListBean.DataBean.ItemsBean> items) {
+//        this.datas.addAll(items);
+//        this.notifyDataSetChanged();
+//    }
 
     @Override
     public int getItemCount() {
@@ -65,12 +65,12 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.View
         holder.tvBrandName.setText(itemsBean.getBrand_info().getBrand_name());
         holder.tvPrice.setText(itemsBean.getPrice());
         holder.tvLikeCount.setText(itemsBean.getLike_count());
-        if(!TextUtils.isEmpty(itemsBean.getDiscount_price())) {
+        if (!TextUtils.isEmpty(itemsBean.getDiscount_price())) {
             holder.flDiscountPrice.setVisibility(View.VISIBLE);
             holder.tvDiscountPrice.setText(itemsBean.getDiscount_price());
-            holder.tvDiscountPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG );
+            holder.tvDiscountPrice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         }
-        if(!TextUtils.isEmpty(itemsBean.getPromotion_imgurl())) {
+        if (!TextUtils.isEmpty(itemsBean.getPromotion_imgurl())) {
             holder.ivPromotionImgurl.setVisibility(View.VISIBLE);
             Glide.with(context).load(itemsBean.getPromotion_imgurl())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)

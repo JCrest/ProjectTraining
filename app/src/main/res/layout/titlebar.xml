@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="10dp"
         android:text="today"
         android:textColor="@color/white"
         android:visibility="gone" />
@@ -26,6 +26,7 @@
 
     <ImageButton
         android:id="@+id/ib_search"
+        android:paddingLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -35,6 +36,7 @@
 
     <ImageButton
         android:id="@+id/ib_back"
+        android:paddingLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -55,6 +57,7 @@
 
         <ImageButton
             android:id="@+id/ib_cart"
+            android:paddingRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -66,6 +69,7 @@
 
         <ImageButton
             android:id="@+id/ib_navigation_menu"
+            android:paddingRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -76,6 +80,7 @@
 
         <ImageButton
             android:id="@+id/ib_setting"
+            android:paddingRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

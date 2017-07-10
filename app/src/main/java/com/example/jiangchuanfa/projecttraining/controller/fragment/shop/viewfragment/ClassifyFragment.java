@@ -38,6 +38,7 @@ public class ClassifyFragment extends BaseFragment {
 
     private String url;
     private ClassifyAdapter adapter;
+    private GoodsListFragment goodsListFragment;
 
     @Override
     public View initView() {
@@ -53,7 +54,7 @@ public class ClassifyFragment extends BaseFragment {
         adapter.setOnItemClickListener(new ClassifyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                showToast(SHOP_ALL_URL[position]);
+//                showToast(SHOP_ALL_URL[position]);
                 MainActivity mainActivity = (MainActivity) context;
 //                mainActivity.exchangeFragment();
                 //发送事件
@@ -64,20 +65,21 @@ public class ClassifyFragment extends BaseFragment {
 
 
 //                GoodsListFragment fragment2 = GoodsListFragment.newInstance(SHOP_ALL_URL[position]);
-                GoodsListFragment goodsListFragment = new GoodsListFragment();
 
+                goodsListFragment = new GoodsListFragment();
                 Bundle bundle = new Bundle();
                 bundle.putString("data", SHOP_ALL_URL[position]);
-                goodsListFragment.setArguments(bundle);
+                ClassifyFragment.this.goodsListFragment.setArguments(bundle);
 
                 FragmentTransaction transaction = mainActivity.getSupportFragmentManager().beginTransaction();
 //                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.add(R.id.fl_main, goodsListFragment,"goodsListFragment");
+                transaction.add(R.id.fl_main, ClassifyFragment.this.goodsListFragment,"goodsListFragment");
 //                transaction.add(R.id.fl_main, fragment2);
                 transaction.addToBackStack(null);
 //                transaction.addToBackStack(null);
                 transaction.commit();
 //                transaction.commit();
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -48,8 +48,8 @@ public class MagazineFragment extends BaseFragment {
     }
 
     private void getDataFromNet() {
-        magezineUrl = Api.SHOP_SPECIAL_URL;
-        Log.e(TAG, "商店专题总的网络地址=====" + magezineUrl);
+        magezineUrl = Api.EXPERT_ALL_URL;//网址错了
+        Log.e(TAG, "杂志总的网络地址=====" + magezineUrl);
         OkHttpUtils
                 .get()
                 .url(magezineUrl)

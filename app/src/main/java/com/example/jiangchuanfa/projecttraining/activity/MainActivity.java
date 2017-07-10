@@ -119,7 +119,8 @@ public class MainActivity extends BaseActivity {
             //开启事务
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             if(getSupportFragmentManager().findFragmentByTag("goodsListFragment")!=null) {
-                ft.hide(getSupportFragmentManager().findFragmentByTag("goodsListFragment"));
+//                ft.remove(getSupportFragmentManager().findFragmentByTag("goodsListFragment"));
+                getSupportFragmentManager().popBackStack();
             }
             //切换
             if (currentFragment != null) {

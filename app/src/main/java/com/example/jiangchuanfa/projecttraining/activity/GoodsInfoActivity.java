@@ -25,7 +25,7 @@ import okhttp3.Call;
  * Created by crest on 2017/7/8.
  */
 
-public class GridGoodsListActivity extends BaseActivity {
+public class GoodsInfoActivity extends BaseActivity {
 
     @BindView(R.id.tv_title)
     TextView tvTitle;
@@ -118,7 +118,7 @@ public class GridGoodsListActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_grid_goods_list;
+        return R.layout.activity_goods_list;
     }
 
 

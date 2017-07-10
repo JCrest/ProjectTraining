@@ -1,6 +1,7 @@
 package com.example.jiangchuanfa.projecttraining.controller.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -8,11 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.jiangchuanfa.projecttraining.R;
+import com.example.jiangchuanfa.projecttraining.activity.GoodsInfoActivity;
 import com.example.jiangchuanfa.projecttraining.modle.bean.GoodsListBean;
 
 import java.util.List;
@@ -96,11 +99,20 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.View
         TextView tvDiscountPrice;
         @BindView(R.id.fl_discount_price)
         FrameLayout flDiscountPrice;
+        @BindView(R.id.rl_item_goods_list_fragment)
+        RelativeLayout rlItemGoodsListFragment;
         Unbinder unbinder;
 
         public ViewHolder(View view) {
             super(view);
             unbinder = ButterKnife.bind(this, view);
+            rlItemGoodsListFragment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, GoodsInfoActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

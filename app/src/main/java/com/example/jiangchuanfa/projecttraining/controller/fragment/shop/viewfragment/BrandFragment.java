@@ -2,7 +2,6 @@ package com.example.jiangchuanfa.projecttraining.controller.fragment.shop.viewfr
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
@@ -50,11 +49,11 @@ public class BrandFragment extends BaseFragment {
         super.initData();
         url = Api.SHOP_BRAND_URL;
         Log.e("TAG", "商店品牌总的网络地址=====" + url);
-        String saveJson = CacheUtils.getString(context, url);
-        if (!TextUtils.isEmpty(saveJson)) {
-            Log.e("TAG", "商店品牌总的json=====" + saveJson);
-            processData(saveJson);
-        }
+//        String saveJson = CacheUtils.getString(context, url);
+//        if (!TextUtils.isEmpty(saveJson)) {
+//            Log.e("TAG", "商店品牌总的json=====" + saveJson);
+//            processData(saveJson);
+//        }
         getDataFromNet(url);
     }
 

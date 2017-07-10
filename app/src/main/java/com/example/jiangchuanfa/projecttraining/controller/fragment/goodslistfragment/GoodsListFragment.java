@@ -12,7 +12,6 @@ import com.example.jiangchuanfa.projecttraining.R;
 import com.example.jiangchuanfa.projecttraining.activity.MainActivity;
 import com.example.jiangchuanfa.projecttraining.base.BaseFragment;
 import com.example.jiangchuanfa.projecttraining.controller.adapter.GoodsListAdapter;
-import com.example.jiangchuanfa.projecttraining.controller.common.FirstEvent;
 import com.example.jiangchuanfa.projecttraining.modle.bean.GoodsListBean;
 import com.google.gson.Gson;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
@@ -108,14 +107,13 @@ public class GoodsListFragment extends BaseFragment {
 //        getDataFromNet(url);
 //    }
 
-    public void onEventMainThread(FirstEvent event) {
-
-        url =  event.getMsg();
-        Log.e(TAG , "url+++++++++++"+url);
-        getDataFromNet(url);
-        tvTitle.setText("商店");
-
-    }
+//    public void onEventMainThread(FirstEvent event) {
+//
+//        url =  event.getMsg();
+//        Log.e(TAG , "url+++++++++++"+url);
+//        getDataFromNet(url);
+//        tvTitle.setText("商店");
+//    }
 
     public static GoodsListFragment newInstance(String text) {
         GoodsListFragment goodsListFragment = new GoodsListFragment();

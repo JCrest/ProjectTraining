@@ -82,7 +82,7 @@
                     android:textSize="12sp" />
 
                 <LinearLayout
-                    android:layout_width="40dp"
+                    android:layout_width="45dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -98,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
-                        android:text="614"
+                        android:text="9999"
                         android:textColor="@color/goods_price"
                         android:textSize="12sp" />
 
@@ -126,7 +126,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp">
+                    android:layout_marginLeft="10dp"
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/tv_discount_price"
@@ -134,14 +135,15 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="￥399.00"
+
                         android:textColor="@color/zzcomment_text"
                         android:textSize="13sp" />
 
-                   <!-- <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:layout_gravity="center"
-                        android:background="@color/zzcomment_text" />-->
+                    <!-- <View
+                         android:layout_width="wrap_content"
+                         android:layout_height="1dp"
+                         android:layout_gravity="center"
+                         android:background="@color/zzcomment_text" />-->
 
                 </FrameLayout>
             </LinearLayout>

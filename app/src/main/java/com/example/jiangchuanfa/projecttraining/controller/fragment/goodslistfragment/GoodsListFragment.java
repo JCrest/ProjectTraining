@@ -115,13 +115,13 @@ public class GoodsListFragment extends BaseFragment {
 //        tvTitle.setText("商店");
 //    }
 
-    public static GoodsListFragment newInstance(String text) {
-        GoodsListFragment goodsListFragment = new GoodsListFragment();
-        Bundle args = new Bundle();
-        args.putString("param", text);
-        goodsListFragment.setArguments(args);
-        return goodsListFragment;
-    }
+//    public static GoodsListFragment newInstance(String text) {
+//        GoodsListFragment goodsListFragment = new GoodsListFragment();
+//        Bundle args = new Bundle();
+//        args.putString("param", text);
+//        goodsListFragment.setArguments(args);
+//        return goodsListFragment;
+//    }
 
 
 
@@ -155,7 +155,6 @@ public class GoodsListFragment extends BaseFragment {
      * @param url
      */
     private void getDataFromNet(final String url) {
-
         OkHttpUtils
                 .get()
                 .url(url)
@@ -165,7 +164,6 @@ public class GoodsListFragment extends BaseFragment {
                     public void onError(Call call, Exception e, int id) {
                         Log.e(TAG, "okhttp商店分类推荐数据请求失败==" + e.getMessage());
                     }
-
                     @Override
                     public void onResponse(final String response, int id) {
                         Log.d(TAG, "onResponse: " + response);

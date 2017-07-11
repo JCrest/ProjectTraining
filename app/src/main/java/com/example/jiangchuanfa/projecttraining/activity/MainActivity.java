@@ -79,10 +79,9 @@ public class MainActivity extends BaseActivity {
                 switchFragment(checkedId);
             }
         });
-
-
-
     }
+
+
 
     private void switchFragment(int checkedId) {
         Fragment fragment = null;

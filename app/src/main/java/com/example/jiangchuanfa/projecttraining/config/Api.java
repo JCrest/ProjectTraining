@@ -108,7 +108,10 @@ public class Api {
 
     public static final String EXPERT_ALL_URL = "http://mobile.iliangcang.com/user/masterList?app_key=Android&count=18&page=1&sig=BF287AF953103F390674E73DDA18CFD8|639843030233268&v=1.0";
 
-
+//商品详情头部
+    public static final String GOODS_DETAILS_HEAD = "http://mobile.iliangcang.com/goods/goodsDetail?app_key=Android&goods_id=";
+//商品详情尾部
+    public static final String GOOD_DETAILS_TAIL = "&sig=BF287AF953103F390674E73DDA18CFD8%7C639843030233268&v=1.0";
 
 
 }

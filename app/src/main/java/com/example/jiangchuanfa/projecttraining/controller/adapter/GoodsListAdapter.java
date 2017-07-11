@@ -3,6 +3,7 @@ package com.example.jiangchuanfa.projecttraining.controller.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -110,6 +111,9 @@ public class GoodsListAdapter extends RecyclerView.Adapter<GoodsListAdapter.View
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, GoodsInfoActivity.class);
+                    Bundle bundle = new Bundle(); //该类用作携带数据
+                    bundle.putString("goods_id",datas.get(getLayoutPosition()).getGoods_id());
+                    intent.putExtras(bundle);
                     context.startActivity(intent);
                 }
             });

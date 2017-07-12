@@ -166,7 +166,7 @@ public class GoodsListFragment extends BaseFragment {
                     }
                     @Override
                     public void onResponse(final String response, int id) {
-                        Log.d(TAG, "onResponse: " + response);
+                        Log.d(TAG, "onResponse:看看这边的网址： " + response);
                         processData(response);
                     }
                 });

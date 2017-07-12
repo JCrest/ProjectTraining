@@ -63,7 +63,7 @@
                             android:layout_height="30dp"
                             android:layout_gravity="right|bottom"
                             android:src="@drawable/zhekou"
-                            android:visibility="gone"/>
+                            android:visibility="visible"/>
                     </FrameLayout>
 
 
@@ -323,7 +323,7 @@
                 <RadioGroup
                     android:id="@+id/rg_goods_info"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="30dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
@@ -362,7 +362,7 @@
                 <LinearLayout
                     android:id="@+id/ll_fragment_container"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:orientation="vertical">

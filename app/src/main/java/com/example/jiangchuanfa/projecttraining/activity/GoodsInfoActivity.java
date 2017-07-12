@@ -215,7 +215,7 @@ public class GoodsInfoActivity extends BaseActivity {
 
     private void processData(String json) {
         GoodsInfoBean goodsInfoBean = new Gson().fromJson(json, GoodsInfoBean.class);
-        Log.e(TAG, "processData: 解析数据：" + goodsInfoBean.getData().getItems().getGoods_desc());
+        Log.e(TAG, "processData: 解析数据：" + goodsInfoBean.getData().getItems().getGoods_info().size());
         brandName.setText(goodsInfoBean.getData().getItems().getBrand_info().getBrand_name());
         goodsName.setText(goodsInfoBean.getData().getItems().getGoods_name());
         if (TextUtils.isEmpty(goodsInfoBean.getData().getItems().getPromotion_note())) {
@@ -232,14 +232,15 @@ public class GoodsInfoActivity extends BaseActivity {
         tvLikeCount.setText(goodsInfoBean.getData().getItems().getLike_count());
         Glide.with(this).load(goodsInfoBean.getData().getItems().getBrand_info().getBrand_logo()).into(brandLogo);
         brandName2.setText(goodsInfoBean.getData().getItems().getBrand_info().getBrand_name());
-        viewPager.setAdapter(new MyPageAdapter(this,goodsInfoBean.getData().getItems().getImages_item()));
 
+        viewPager.setAdapter(new MyPageAdapter(this,goodsInfoBean.getData().getItems().getImages_item()));
         //根据图片集合的元素的数量设置指示点
         for (int i = 0; i < goodsInfoBean.getData().getItems().getImages_item().size(); i++) {
             //指示点在android中本质上是ImageView（创建一个ImageView）
             ImageView imageView = new ImageView(GoodsInfoActivity.this);
             //在布局文件中已经设置了小指示点但还需要在代码中稍微调整一下，如果已经调好则可不需要这段（以下3行）
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-2, ViewGroup.LayoutParams.WRAP_CONTENT);
+            Log.e(TAG, "processData: /*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*");
             params.leftMargin = 10;
             imageView.setLayoutParams(params);
 
@@ -253,6 +254,7 @@ public class GoodsInfoActivity extends BaseActivity {
             }
             ll_point_group.addView(imageView);
         }
+
 
 
 
